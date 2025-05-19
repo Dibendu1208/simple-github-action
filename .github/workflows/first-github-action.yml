@@ -1,18 +1,12 @@
-name: List Files in Repository
+name: Manual Trigger Only
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual execution from GitHub UI
 
 jobs:
-  list-files:
+  run-manually:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: List Files
-        run: ls -R
+      - name: Print Message
+        run: echo "This workflow was triggered manually!"
