@@ -1,12 +1,24 @@
-name: Manual Trigger Only
+name: Lint Code
 
 on:
-  workflow_dispatch: # Allows manual execution from GitHub UI
+  push:
+  pull_request:
 
 jobs:
-  run-manually:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print Message
-        run: echo "This workflow was triggered manually!"
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up Node.js (Example for JavaScript/TypeScript)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Linter
+        run: npm run lint
