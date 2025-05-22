@@ -1,0 +1,12 @@
+name: Manual Trigger Only
+
+on:
+  workflow_dispatch: # Allows manual execution from GitHub UI
+
+jobs:
+  run-manually:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Message
+        run: echo "This workflow was triggered manually!"
