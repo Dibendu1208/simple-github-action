@@ -27,5 +27,5 @@ jobs:
 
       - name: Run Python script
         run: |
-          pwd
-          /home/runner/work/simple-github-action/simple-github-action/simple_script.py
+          chmod +x /home/runner/work/simple-github-action/simple-github-action/simple_script.py
+          python /home/runner/work/simple-github-action/simple-github-action/simple_script.py
