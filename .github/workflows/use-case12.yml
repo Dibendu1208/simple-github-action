@@ -28,4 +28,4 @@ jobs:
       - name: Run Python script
         run: |
           pwd
-          /c/Users/10820028/github-action/simple-github-action/simple_script.py
+          /home/runner/work/simple-github-action/simple-github-action/simple_script.py
