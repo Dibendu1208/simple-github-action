@@ -4,5 +4,5 @@
 print("Hello, world!")
 
 # Ask for user input
-name = input("What's your name? ")
+name = "GitHub Runner"
 print(f"Nice to meet you, {name}!")
