@@ -1,0 +1,29 @@
+name: Run Only on New Files in src/new/
+
+on:
+  push:
+    paths:
+      - 'src/new/**'
+
+jobs:
+
+  run-on-new-files:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check if new files were added
+        id: check_new
+
+        run: |
+          git fetch origin main --depth=1
+          ADDED_FILES=$(git diff --name-status origin/main...HEAD -- src/new/ | grep "^A" | wc -l)
+          echo "Added file count: $ADDED_FILES"
+          echo "added_count=$ADDED_FILES" >> $GITHUB_OUTPUT
+
+      - name: Run step only if new files were added
+        if: steps.check_new.outputs.added_count != '0'
+        run: echo "New files were added in src/new/, running job..."
+ 
