@@ -26,4 +26,5 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run Python script
+        run: pwd
         run: /c/Users/10820028/github-action/simple-github-action/simple_script.py
