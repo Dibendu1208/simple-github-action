@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Set Up Environment (Example: Node.js)
+      - name: Set Up Environment
         uses: actions/setup-node@v3
         with:
           node-version: '18'
